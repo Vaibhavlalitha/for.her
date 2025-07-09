@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Love, You Come First</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: radial-gradient(circle at top, #fff0f5 0%, #ffe4e1 100%);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #ffb6c1, #ffa6c9);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      color: #b30059;
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+
+    header p {
+      font-size: 1.4em;
+      color: #333;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.6em;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #b30059;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .memories img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .memories img:hover {
+      transform: scale(1.12) rotate(1deg);
+    }
+
+    .love-notes, .apology, .fun-section {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.25em;
+      color: #5c2a4c;
+      line-height: 2em;
+      background: #fff0f8;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .message-box textarea {
+      width: 90%;
+      height: 160px;
+      padding: 15px;
+      border: 2px solid #cc3366;
+      border-radius: 12px;
+      resize: none;
+      font-size: 1.1em;
+      margin-top: 15px;
+      background: #fffafc;
+    }
+
+    .message-box button {
+      margin-top: 20px;
+      padding: 12px 32px;
+      background-color: #cc3366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .message-box button:hover {
+      background-color: #b30059;
+      transform: scale(1.05);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      width: 22px;
+      height: 22px;
+      background: pink;
+      position: absolute;
+      animation: float 9s infinite ease-in;
+      clip-path: polygon(50% 0%, 61% 14%, 75% 14%, 88% 27%, 88% 40%, 75% 54%, 50% 80%, 25% 54%, 12% 40%, 12% 27%, 25% 14%, 39% 14%);
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    @media only screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      header p {
+        font-size: 1.1em;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .memories img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .love-notes, .apology, .fun-section {
+        padding: 20px;
+        font-size: 1em;
+      }
+
+      .message-box textarea {
+        width: 95%;
+        height: 120px;
+      }
+
+      .message-box button {
+        padding: 10px 24px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Add this inside <body> before the script tag -->
+
+<audio id="bg-music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div style="text-align:center; margin: 30px;">
+  <button onclick="playMusic()" style="padding: 12px 28px; font-size: 1.2em; background-color: #cc3366; color: white; border: none; border-radius: 10px; cursor: pointer;">
+    🎵 Play your Song
+  </button>
+</div>
+
+<script>
+  function createHearts() {
+    const hearts = document.getElementById('hearts');
+    for (let i = 0; i < 35; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      hearts.appendChild(heart);
+    }
+  }
+
+  function playMusic() {
+    const audio = document.getElementById('bg-music');
+    audio.play();
+  }
+
+  createHearts();
+</script>
+
+
+  <div class="hearts" id="hearts"></div>
+
+  <header>
+    <h1>amirtha, en thangameyyyeeeee💕</h1>
+    <p> I want you to know this: You are my top priority. Above work, above pride, above ego—it's you. I'm so sorry for everything, and I’ll do whatever it takes to make you smile again. 💕</p>
+  </header>
+
+  <section class="memories">
+    <h2>Our Lovely Memories</h2>
+    <img src="M2.JPG" alt="Memory 1">
+    <img src="M3.JPG" alt="Memory 2">
+    <img src="M4.JPG" alt="Memory 3">
+    <img src="MEMORIE 1.JPG" alt="Memory 4">
+    <img src="M5.JPG" alt="Memory 3">
+    <img src="M6.JPG" alt="Memory 3">
+  </section>
+
+  <section class="love-notes">
+    <h2>You Mean the World to Me</h2>
+    <p>I’ll choose you in a hundred lifetimes, in a hundred worlds, in any version of reality. I’d find you and love you all over again. You’re the softest part of my soul and the most beautiful reason I believe in love.</p>
+  </section>
+
+  <section class="apology">
+    <h2>From My Heart</h2>
+    <p>I know I hurt you, and that breaks me. I should’ve understood you better, treat you more, and never made you feel less. I’m sorry for every tear, every doubt. My heart beats for you—and I promise, my actions will not do  it again. Please let me in again. 🥺</p>
+  </section>
+
+  <section class="fun-section">
+    <h2>Smile With Me 😊</h2>
+    <p>   
+    I want to laugh with you again — to go on some silly adventures, to make memories we’ll laugh about forever.  
+    You are not just someone I love — you're the joy in my smile and the peace in my heart.  
+    From now on, I will treat you like the half that completes me. You are my priority, my love, my forever.  
+    Let’s laugh again. Let’s love again. Let’s be us again. 💖</p>
+  </section>
+
+  <section class="message-box">
+    <h2>YOUR MAN</h2>
+    <h2>vaibhav</h2>
+    <h2>Your Turn, My Love 💌</h2>
+    <textarea placeholder="Say something... anything. I'm all ears and all heart."></textarea><br>
+    <button onclick="alert('Thank you for your message, my love. I’ll treasure it forever.')">Send</button>
+  </section>
+
+  <script>
+    function createHearts() {
+      const hearts = document.getElementById('hearts');
+      for (let i = 0; i < 35; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+        hearts.appendChild(heart);
+      }
+    }
+    createHearts();
+  </script>
+</body>
+</html>
